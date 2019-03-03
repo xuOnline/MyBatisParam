@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TestCuxUsersMapper">
+  <resultMap id="BaseResultMap" type="com.model.CuxUsers">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creationDate" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+    <result column="comments" jdbcType="VARCHAR" property="comments" />
+  </resultMap>
+  <select id="selectUserbyparam1" resultMap="BaseResultMap">
+    SELECT *
+    FROM cux_users
+    WHERE user_name = #{userName}
+  </select>
+</mapper>

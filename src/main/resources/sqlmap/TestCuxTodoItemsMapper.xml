@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TestCuxTodoItemsMapper">
+  <resultMap id="BaseResultMap" type="com.model.CuxTodoItems">
+    <id column="todo_item_id" jdbcType="INTEGER" property="todoItemId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="todo_item_title" jdbcType="VARCHAR" property="todoItemTitle" />
+    <result column="todo_item_content" jdbcType="VARCHAR" property="todoItemContent" />
+    <result column="priority" jdbcType="VARCHAR" property="priority" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creationDate" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+    <result column="comments" jdbcType="VARCHAR" property="comments" />
+  </resultMap>
+  <select id="selectItembyparam1" resultMap="BaseResultMap">
+      SELECT *
+      FROM  cux_todo_items
+      WHERE user_id = #{id}
+      AND   priority = #{pty}
+
+  </select>
+
+  <select id="selectItembyparam2" resultMap="BaseResultMap">
+       SELECT *
+       FROM  cux_todo_items
+       WHERE user_id = #{item.userId}
+       AND   priority = #{item.priority}
+  </select>
+  <select id="selectItembyparam3" resultMap="BaseResultMap">
+    SELECT *
+    FROM  cux_todo_items
+    WHERE user_id = #{us.userId}
+    AND   priority = #{it.priority}
+  </select>
+    <select id="selectItembyparam4" resultMap="BaseResultMap">
+        SELECT *
+        FROM  cux_todo_items
+        WHERE user_id = #{aa}
+    </select>
+    <select id="selectItembyparam5" resultMap="BaseResultMap">
+        SELECT *
+        FROM  cux_todo_items
+        WHERE user_id = #{param1}
+          AND   priority = #{param2}
+    </select>
+    <select id="selectItembyparam6" resultMap="BaseResultMap">
+        SELECT *
+        FROM  cux_todo_items
+        WHERE user_id = #{userId}
+          AND priority = #{priority}
+    </select>
+
+    <select id="selectItembyparam7" resultMap="BaseResultMap">
+        SELECT *
+        FROM  cux_todo_items
+        WHERE priority = #{0.priority}
+        AND   user_id = #{1.userId}
+    </select>
+</mapper>
